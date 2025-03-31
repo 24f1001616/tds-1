@@ -38,6 +38,9 @@ async def process_question(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
 # New endpoint for testing specific functions
 @app.post("/debug/{function_name}")
 async def debug_function(
